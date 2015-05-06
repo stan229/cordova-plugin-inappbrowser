@@ -501,7 +501,7 @@
     self.webView.opaque = YES;
     self.webView.scalesPageToFit = NO;
     self.webView.userInteractionEnabled = YES;
-
+    
     self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     self.spinner.alpha = 1.000;
     self.spinner.autoresizesSubviews = YES;
@@ -820,8 +820,11 @@
     self.addressLabel.text = NSLocalizedString(@"Loading...", nil);
     self.backButton.enabled = theWebView.canGoBack;
     self.forwardButton.enabled = theWebView.canGoForward;
+    
+    if(!_browserOptions.hidespinner) {
+        [self.spinner startAnimating];
+    }
 
-    [self.spinner startAnimating];
 
     return [self.navigationDelegate webViewDidStartLoad:theWebView];
 }
@@ -929,6 +932,8 @@
         self.suppressesincrementalrendering = NO;
         self.hidden = NO;
         self.disallowoverscroll = NO;
+        
+        self.hidespinner = NO;
     }
 
     return self;

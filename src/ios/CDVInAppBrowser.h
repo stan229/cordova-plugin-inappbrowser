@@ -63,6 +63,7 @@
 @property (nonatomic, assign) BOOL suppressesincrementalrendering;
 @property (nonatomic, assign) BOOL hidden;
 @property (nonatomic, assign) BOOL disallowoverscroll;
+@property (nonatomic, assign) BOOL hidespinner;
 
 + (CDVInAppBrowserOptions*)parseOptions:(NSString*)options;
 
